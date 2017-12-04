@@ -1,9 +1,0 @@
-<h2>Medicamentos</h2>
-
-<ul class="medicamentos">
-    <li *ngFor="let medicamento of medicamentos" [class.selected]="medicamento === selectedMedicamento" (click)="onSelect(medicamento)">
-        <span class="badge">{{medicamento.id}}</span> {{medicamento.nome}}
-    </li>
-</ul>
-
-<app-medicamento-detail [medicamento]="selectedMedicamento"></app-medicamento-detail>
