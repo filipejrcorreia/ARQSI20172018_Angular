@@ -1,21 +1,33 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroSearchComponent }  from './hero-search/hero-search.component';
-import { HeroService }          from './hero.service';
-import { MessageService }       from './message.service';
-import { MessagesComponent }    from './messages/messages.component';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroService } from './hero.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
+import { ReceitasComponent } from './receitas/receitas.component';
+import { LoginComponent } from './login/login.component';
+
+import { ReceitasService } from './services/receitas.service';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthGuard } from './guards/auth.guard';
+import { MedicoGuard } from './guards/medico.guard';
+import { UtenteGuard } from './guards/utente.guard';
+import { AlertComponent } from './alert/alert.component';
+import { RegistarComponent } from './registar/registar.component';
+
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [
@@ -28,7 +40,7 @@ import { MessagesComponent }    from './messages/messages.component';
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     //HttpClientInMemoryWebApiModule.forRoot(
-      //InMemoryDataService, { dataEncapsulation: false }
+    //  InMemoryDataService, { dataEncapsulation: false }
     //)
   ],
   declarations: [
@@ -37,9 +49,22 @@ import { MessagesComponent }    from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ReceitasComponent,
+    LoginComponent,
+    AlertComponent,
+    RegistarComponent
   ],
-  providers: [ HeroService, MessageService ],
-  bootstrap: [ AppComponent ]
+  providers: [
+    AuthGuard,
+    MedicoGuard,
+    UtenteGuard,
+    AuthenticationService,
+    ReceitasService,
+    HeroService,
+    MessageService,
+    UserService
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

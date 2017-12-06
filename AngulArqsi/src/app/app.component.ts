@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { AuthenticationService } from './services/authentication.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Prescrição informática de medicamentos';
+  subscriptionAuth: Subscription;
+  userInfo: User;
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private cdr: ChangeDetectorRef) { }
+
+  ngOnInit() {
+    this.userInfo = this.authenticationService.userInfo;
+    this.subscriptionAuth =
+      this.authenticationService.authentication.subscribe((userInfo) => {
+        this.userInfo = userInfo;
+        this.cdr.detectChanges();
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscriptionAuth.unsubscribe();
+  }
 }
