@@ -9,10 +9,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroService } from './hero.service';
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
@@ -28,6 +24,7 @@ import { AlertComponent } from './alert/alert.component';
 import { RegistarComponent } from './registar/registar.component';
 
 import { UserService } from './services/user.service';
+import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
 
 @NgModule({
   imports: [
@@ -45,15 +42,12 @@ import { UserService } from './services/user.service';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent,
     ReceitasComponent,
     LoginComponent,
     AlertComponent,
-    RegistarComponent
+    RegistarComponent,
+    ReceitaDetailComponent
   ],
   providers: [
     AuthGuard,
