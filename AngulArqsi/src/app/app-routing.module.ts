@@ -11,6 +11,10 @@ import { RegistarComponent } from './registar/registar.component';
 
 import { InitialPageComponent } from './initial-page/initial-page.component';
 
+import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
+
+import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
@@ -20,7 +24,9 @@ const routes: Routes = [
     path: 'receitas', component: ReceitasComponent, canActivate:
       [AuthGuard, MedicoGuard]
   },
-  { path: 'registar', component: RegistarComponent }
+  { path: 'registar', component: RegistarComponent },
+  { path: 'apresentacoes', component: ApresentacoesComponent },
+  { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent }
 ];
 
 @NgModule({
