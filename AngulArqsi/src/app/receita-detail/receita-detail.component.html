@@ -1,11 +1,20 @@
-<!--<p>
+<!--p>
   receita-detail works!
-</p>-->
+</p-->
 <div *ngIf="receita">
+  <h2>{{ receita.nomeUtente | uppercase }} Details</h2>
+  <div><span>id: </span>{{receita._id}}</div>
+  <button (click)="goBack()">go back</button>
+</div>
+<!--div *ngIf="receita">
+  <h2>{{ receita.name | uppercase }} Details</h2>
   <div>
     <span>id: </span>{{receita._id}}</div>
   <div>
-    <span>utente: </span>{{receita.utente}}</div>
+    <label>name:
+      <input [(ngModel)]="receita.nomeUtente" placeholder="name" />
+    </label>
+  </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
-</div>
+</div-->

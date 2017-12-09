@@ -48,7 +48,11 @@ export class ReceitasService {
     return new Observable<boolean>(observer => {
       this.http.post<Token>(this.receitasUrl, {
         nomeUtente: nomeUtente,
-        prescricoes: { farmaco: farmaco, quantidade: quantidade, validade: validade }
+        prescricoes: [{
+          farmaco: farmaco,
+          quantidade: quantidade,
+          validade: validade
+        }]
       }, this.getHeaders())
         .subscribe(data => {
           if (data) {
@@ -88,12 +92,16 @@ export class ReceitasService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getReceita(id: number): Observable<Receita> {
+  /*getReceita(id: number): Observable<Receita> {
     const url = `${this.receitasUrl}/${id}`;
     return this.http.get<Receita>(url).pipe(
       tap(_ => console.log(`fetched receita id=${id}`)),
       catchError(this.handleError<Receita>(`getReceita id=${id}`))
     );
+  }*/
+
+  getReceita(id: string): Observable<Receita> {
+    return this.http.get<Receita>(this.receitasUrl + '/' + id, this.getHeaders());
   }
 
   /**
