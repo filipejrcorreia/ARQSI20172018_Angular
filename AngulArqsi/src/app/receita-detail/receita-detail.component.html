@@ -1,0 +1,11 @@
+<!--<p>
+  receita-detail works!
+</p>-->
+<div *ngIf="receita">
+  <div>
+    <span>id: </span>{{receita._id}}</div>
+  <div>
+    <span>utente: </span>{{receita.utente}}</div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

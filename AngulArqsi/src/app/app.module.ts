@@ -25,6 +25,7 @@ import { RegistarComponent } from './registar/registar.component';
 
 import { UserService } from './services/user.service';
 import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
+import { InitialPageComponent } from './initial-page/initial-page.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { ReceitaDetailComponent } from './receita-detail/receita-detail.componen
     LoginComponent,
     AlertComponent,
     RegistarComponent,
-    ReceitaDetailComponent
+    ReceitaDetailComponent,
+    InitialPageComponent
   ],
   providers: [
     AuthGuard,

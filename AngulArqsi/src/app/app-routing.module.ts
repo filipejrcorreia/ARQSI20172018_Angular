@@ -9,7 +9,12 @@ import { UtenteGuard } from './guards/utente.guard';
 
 import { RegistarComponent } from './registar/registar.component';
 
+import { InitialPageComponent } from './initial-page/initial-page.component';
+
 const routes: Routes = [
+  { path: '', redirectTo: '/initial', pathMatch: 'full' },
+  //{ path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'initial', component: InitialPageComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'receitas', component: ReceitasComponent, canActivate:

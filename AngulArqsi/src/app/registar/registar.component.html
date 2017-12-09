@@ -1,0 +1,97 @@
+<!--<p>works</p>-->
+<!--<div class="col-md-6 col-md-offset-3">
+  <h2>Registar</h2>
+  <form name="form" (ngSubmit)="f.form.valid && registar()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+      && !nome.valid }">
+           <label for="nome">Nome</label>
+           <input type="text" class="form-control" name="nome" [(ngModel)]="model.nome" #email="ngModel" required />
+           <div *ngIf="f.submitted && !nome.valid" class="helpblock">nome is required</div>
+         </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+ && !email.valid }">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+      <div *ngIf="f.submitted && !email.valid" class="helpblock">email is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+ && !password.valid }">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+      <div *ngIf="f.submitted && !password.valid" class="helpblock">Password is required</div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btnprimary">Registar</button>
+      <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYo
+ KCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5
+ mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2
+ LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG
+ 4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAA
+ AsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJ
+ Z7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYum
+ CYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAE
+ AAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpF
+ KSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojE
+ MBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZ
+ nFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAi
+ B1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+</div>-->
+<div class="col-md-6 col-md-offset-3">
+  <form name="form" (ngSubmit)="f.form.valid && registar()" #f="ngForm" novalidate>
+    <h2> Registar </h2>
+  
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+          && !nome.valid  }">
+        <label for="nome">
+          <b>Nome: </b>
+        </label>
+        <input type="text" placeholder="Enter Name" class="form-control" name="nome" [(ngModel)]="model.nome" #name="ngModel" required
+        />
+        <div *ngIf="f.submitted && !nome.valid" class="helpblock">Password is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+        && !email.valid }">
+        <label for="email">
+          <b>Email: </b>
+        </label>
+        <input type="text" placeholder="Enter email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel"
+          required />
+        <div *ngIf="f.submitted && !email.valid" class="helpblock">email is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+        && !password.valid }">
+        <label for="password">
+          <b>Password: </b>
+        </label>
+        <input type="password" placeholder="Enter Password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel"
+          required />
+        <div *ngIf="f.submitted && !password.valid" class="helpblock">Password is required</div>
+      </div>
+
+      <p>By creating an account you agree to our
+        <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="form-group">
+        <button [disabled]="loading" type="btn btnprimary" class="signupbtn">Sign Up</button>
+        <button [disabled]="loading" type="reset" class="cancelbtn">Reset</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYo
+          KCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5
+          mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2
+          LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG
+          4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAA
+          AsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJ
+          Z7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYum
+          CYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAE
+          AAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpF
+          KSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojE
+          MBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZ
+          nFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAi
+          B1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </div>
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+ 
+  </form>
+</div>

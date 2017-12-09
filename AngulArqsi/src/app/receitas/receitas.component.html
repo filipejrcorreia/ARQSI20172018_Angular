@@ -1,0 +1,28 @@
+<!--div class="col-md-6 col-md-offset-3">
+  <h1>Receitas</h1>
+  <div>
+    <ul>
+      <li *ngFor="let receita of receitas">{{receita._id}}</li>
+    </ul>
+  </div>
+</div-->
+<h2>Receitas</h2>
+<ul class="receitas">
+  <li *ngFor="let receita of receitas" [class.selected]="receita === selectedReceita" (click)="onSelect(receita)">
+    <span class="badge">{{receita._id}}</span> {{receita.utente}}
+  </li>
+</ul>
+
+<div *ngIf="selectedReceita">
+
+  <h2>Detalhes da receita{{ selectedReceita._id | uppercase }}</h2>
+  <div>
+    <span>id: </span>{{selectedReceita._id}}</div>
+
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedReceita.utente" placeholder="name">
+    </label>
+  </div>
+
+</div>
