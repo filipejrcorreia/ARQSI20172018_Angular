@@ -1,0 +1,67 @@
+<!--p>
+  criar-receita works!
+</p-->
+<div class="col-md-6 col-md-offset-3">
+  <form name="form" (ngSubmit)="f.form.valid && criarReceita()" #f="ngForm" novalidate>
+    <h2> Criar Receita </h2>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+          && !nomeUtente.valid  }">
+      <label for="nomeUtente">
+        <b>Nome do nomeUtente: </b>
+      </label>
+      <input type="text" placeholder="Enter Nome do nomeUtente" class="form-control" name="nomeUtente" [(ngModel)]="model.nomeUtente"
+        #name="ngModel" required />
+      <div *ngIf="f.submitted && !nomeUtente.valid" class="helpblock">Password is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+        && !farmaco.valid }">
+      <label for="farmaco">
+        <b>Fármaco: </b>
+      </label>
+      <input type="text" placeholder="Enter farmaco" class="form-control" name="farmaco" [(ngModel)]="model.farmaco" #email="ngModel"
+        required />
+      <div *ngIf="f.submitted && !farmaco.valid" class="helpblock">Farmaco is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+        && !quantidade.valid }">
+      <label for="quantidade">
+        <b>Quantidade: </b>
+      </label>
+      <input type="number" placeholder="Enter Quantidade" class="form-control" name="quantidade" [(ngModel)]="model.quantidade"
+        #password="ngModel" required />
+      <div *ngIf="f.submitted && !quantidade.valid" class="helpblock">Quantidade is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+      && !validade.valid }">
+      <label for="validade">
+        <b>Validade: </b>
+      </label>
+      <input type="date" placeholder="Enter Validade" class="form-control" name="validade" [(ngModel)]="model.validade"
+        #password="ngModel" required />
+      <div *ngIf="f.submitted && !validade.valid" class="helpblock">Validade is required</div>
+    </div>
+
+    <div class="form-group">
+      <!--button [disabled]="loading" type="btn btnprimary">Criar Receita</button-->
+      <button class="criar" title="criar receita"
+      (click)="criarReceita()">Criar Receita</button>
+      <button [disabled]="loading" type="reset" class="cancelbtn">Reset</button>
+      <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYo
+          KCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5
+          mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2
+          LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG
+          4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAA
+          AsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJ
+          Z7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYum
+          CYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAE
+          AAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpF
+          KSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojE
+          MBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZ
+          nFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAi
+          B1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+  </form>
+</div>

@@ -15,6 +15,8 @@ import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component'
 
 import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
 
+import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
@@ -26,7 +28,8 @@ const routes: Routes = [
   },
   { path: 'registar', component: RegistarComponent },
   { path: 'apresentacoes', component: ApresentacoesComponent },
-  { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent }
+  { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
+  { path: 'receita/criar-receita', component: CriarReceitaComponent }
 ];
 
 @NgModule({

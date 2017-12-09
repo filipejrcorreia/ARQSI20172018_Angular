@@ -29,6 +29,7 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
 import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
 import { ApresentacoesService } from './services/apresentacoes.service';
 import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
+import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/a
     ReceitaDetailComponent,
     InitialPageComponent,
     ApresentacoesComponent,
-    ApresentacaoMedicamentosComponent
+    ApresentacaoMedicamentosComponent,
+    CriarReceitaComponent
   ],
   providers: [
     AuthGuard,
