@@ -26,6 +26,9 @@ import { RegistarComponent } from './registar/registar.component';
 import { UserService } from './services/user.service';
 import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
 import { InitialPageComponent } from './initial-page/initial-page.component';
+import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
+import { ApresentacoesService } from './services/apresentacoes.service';
+import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
 
 @NgModule({
   imports: [
@@ -49,7 +52,9 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
     AlertComponent,
     RegistarComponent,
     ReceitaDetailComponent,
-    InitialPageComponent
+    InitialPageComponent,
+    ApresentacoesComponent,
+    ApresentacaoMedicamentosComponent
   ],
   providers: [
     AuthGuard,
@@ -59,7 +64,8 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
     ReceitasService,
     HeroService,
     MessageService,
-    UserService
+    UserService,
+    ApresentacoesService
   ],
   bootstrap: [AppComponent]
 })

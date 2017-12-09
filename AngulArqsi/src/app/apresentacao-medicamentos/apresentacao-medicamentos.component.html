@@ -1,0 +1,16 @@
+<h2>Medicamentos</h2>
+<ul class="apresentacoes">
+  <li *ngFor="let apresentacao of apresentacoes" [class.selected]="apresentacao === selectedApresentacao" (click)="onSelect(apresentacao)">
+    <h3>{{apresentacao.nomeMedicamento}}</h3>
+    <div>
+      <span>Fármaco: </span>{{apresentacao.nomeFarmaco}}</div>
+    <div>
+      <span>Medicamento: </span>{{apresentacao.nomeMedicamento}}</div>
+    <div>
+      <span>Forma: </span>{{apresentacao.forma}}</div>
+    <div>
+      <span>Concentração: </span>{{apresentacao.concentracao}}</div>
+    <div>
+      <span>Quantidade: </span>{{apresentacao.qtd}}</div>
+  </li>
+</ul>
