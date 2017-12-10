@@ -6,6 +6,7 @@ import { Receita } from '../models/receita';
 import { AuthenticationService } from './authentication.service';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Prescricao } from '../models/prescricao';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,6 +17,9 @@ class Token { token: string };
 @Injectable()
 export class ReceitasService {
   private receitasUrl = 'http://localhost:8080/Receita';
+
+  prescricao: Prescricao;
+
   //verificar o servidor:porta
   constructor(
     private http: HttpClient,
@@ -35,8 +39,8 @@ export class ReceitasService {
     };
     return httpOptions;
   }
-  
-  getReceitaById(receita_id: string): Observable<Receita>{
+
+  getReceitaById(receita_id: string): Observable<Receita> {
     if (!receita_id.trim()) {
       // if not search term, return empty hero array.
       return of(null);
@@ -55,15 +59,40 @@ export class ReceitasService {
     );
   }
 
-  criarReceita(nomeUtente: string, farmaco: string, quantidade: string, validade: string): Observable<boolean> {
-    return new Observable<boolean>(observer => {
+  criarReceita(nomeUtente: string,/* farmaco: string, quantidade: string, validade: string, apresentacao: string, posologiaPrescrita: string,*/ prescricoes: Prescricao[]): Observable<boolean> {
+    /*return new Observable<boolean>(observer => {
       this.http.post<Token>(this.receitasUrl, {
         nomeUtente: nomeUtente,
         prescricoes: [{
           farmaco: farmaco,
           quantidade: quantidade,
-          validade: validade
+          validade: validade,
+          apresentacao: apresentacao,
+          posologiaPrescrita: posologiaPrescrita
         }]
+      }, this.getHeaders())
+      prescricao: {
+        "farmaco": farmaco;
+        "quantidade": quantidade;
+        "validade": validade;
+        "apresentacao": apresentacao;
+        "posologiaPrescrita": posologiaPrescrita;
+      };
+      prescricoes2.push({
+        "num": prescricoes2.length,
+        "farmaco": farmaco,
+        "quantidade": quantidade,
+        "validade": validade,
+        "apresentacao": apresentacao,
+        "apresentacaoID": undefined,
+        "posologiaPrescrita": posologiaPrescrita,
+        "posologiaID": undefined,
+        "aviamento": [undefined]
+      });*/
+    return new Observable<boolean>(observer => {
+      this.http.post<Token>(this.receitasUrl, {
+        nomeUtente: nomeUtente,
+        prescricoes: prescricoes
       }, this.getHeaders())
         .subscribe(data => {
           if (data) {

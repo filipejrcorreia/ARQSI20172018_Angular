@@ -1,3 +1,5 @@
+import {Prescricao} from './prescricao';
+
 export class Receita {
     _id: string;
     utente: string;

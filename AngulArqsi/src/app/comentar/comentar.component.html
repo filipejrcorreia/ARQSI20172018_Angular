@@ -17,9 +17,9 @@
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted
         && !descricao.valid }">
       <label for="descricao">
-        <b>descricao: </b>
+        <b>Descrição: </b>
       </label>
-      <input type="text" placeholder="Enter descricao" class="form-control" name="descricao" [(ngModel)]="model.descricao"
+      <input type="text" placeholder="Enter Descrição" class="form-control" name="descricao" [(ngModel)]="model.descricao"
         #password="ngModel" required />
       <div *ngIf="f.submitted && !descricao.valid" class="helpblock">descricao is required</div>
     </div>

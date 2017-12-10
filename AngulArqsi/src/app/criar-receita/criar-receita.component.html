@@ -2,18 +2,18 @@
   criar-receita works!
 </p-->
 <div class="col-md-6 col-md-offset-3">
-  <form name="form" (ngSubmit)="f.form.valid && criarReceita()" #f="ngForm" novalidate>
+  <form name="form" (ngSubmit)="f.form.valid && adicionarPrescricao() && criarReceita()" #f="ngForm" novalidate>
     <h2> Criar Receita </h2>
-
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted
           && !nomeUtente.valid  }">
       <label for="nomeUtente">
-        <b>Nome do nomeUtente: </b>
+        <b>Nome do Utente: </b>
       </label>
-      <input type="text" placeholder="Enter Nome do nomeUtente" class="form-control" name="nomeUtente" [(ngModel)]="model.nomeUtente"
+      <input type="text" placeholder="Enter Nome do Utente" class="form-control" name="nomeUtente" [(ngModel)]="model.nomeUtente"
         #name="ngModel" required />
-      <div *ngIf="f.submitted && !nomeUtente.valid" class="helpblock">Password is required</div>
+      <div *ngIf="f.submitted && !nomeUtente.valid" class="helpblock">Nome do Utente is required</div>
     </div>
+    <h4>Prescrição</h4>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted
         && !farmaco.valid }">
       <label for="farmaco">
@@ -29,7 +29,7 @@
         <b>Quantidade: </b>
       </label>
       <input type="number" placeholder="Enter Quantidade" class="form-control" name="quantidade" [(ngModel)]="model.quantidade"
-        #password="ngModel" required />
+        #email="ngModel" required />
       <div *ngIf="f.submitted && !quantidade.valid" class="helpblock">Quantidade is required</div>
     </div>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted
@@ -37,15 +37,33 @@
       <label for="validade">
         <b>Validade: </b>
       </label>
-      <input type="date" placeholder="Enter Validade" class="form-control" name="validade" [(ngModel)]="model.validade"
-        #password="ngModel" required />
-      <div *ngIf="f.submitted && !validade.valid" class="helpblock">Validade is required</div>
+      <input type="date" placeholder="Enter Validade" class="form-control" name="validade" [(ngModel)]="model.validade" #email="ngModel"
+        required />
+      <!--div *ngIf="f.submitted && !validade.valid" class="helpblock">Validade is required</div-->
     </div>
-
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+    && !apresentacao.valid }">
+      <label for="apresentacao">
+        <b>Apresentação: </b>
+      </label>
+      <input type="text" placeholder="Enter Apresentação" class="form-control" name="apresentacao" [(ngModel)]="model.apresentacao" #email="ngModel"
+        required />
+      <div *ngIf="f.submitted && !apresentacao.valid" class="helpblock">Apresentacao is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted
+    && !posologiaPrescrita.valid }">
+      <label for="posologiaPrescrita">
+        <b>Posologia: </b>
+      </label>
+      <input type="text" placeholder="Enter Posologia" class="form-control" name="posologiaPrescrita" [(ngModel)]="model.posologiaPrescrita" #email="ngModel"
+        required />
+      <div *ngIf="f.submitted && !posologiaPrescrita.valid" class="helpblock">Posologia is required</div>
+    </div>
+    <button class="adicionar" title="adicionar prescricao" (click)="adicionarPrescricao()">Adicionar Prescrição</button>
+<p></p>
     <div class="form-group">
       <!--button [disabled]="loading" type="btn btnprimary">Criar Receita</button-->
-      <button class="criar" title="criar receita"
-      (click)="criarReceita()">Criar Receita</button>
+      <button class="criar" title="criar receita" (click)="criarReceita()">Criar Receita</button>
       <button [disabled]="loading" type="reset" class="cancelbtn">Reset</button>
       <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYo
           KCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5

@@ -25,6 +25,8 @@ export class ComentarComponent implements OnInit {
 
   farmacoIdAux: number;
 
+  inicial: Reacao[] = new Array();
+
   model: any = {};
   loading = false;
   error = '';
@@ -42,8 +44,8 @@ export class ComentarComponent implements OnInit {
           console.log(this.reacoes);
 
           this.comentarios.forEach(comentario => {
-            comentario.reacoes=[{id:0, descricao:'alérgico'}];
-            //comentario.reacoes = [];
+            //comentario.reacoes=[{id:0, descricao:'alérgico'}];
+            comentario.reacoes = [undefined];
             this.reacoes.forEach(reacao => {
               if (reacao.farmacoId == comentario.id) {
                 console.log(comentario.reacoes);
