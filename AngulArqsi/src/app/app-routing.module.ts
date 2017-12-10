@@ -24,6 +24,8 @@ import { ReceitaDetailComponent } from './receita-detail/receita-detail.componen
 
 import { ComentariosComponent } from './comentarios/comentarios.component';
 
+import { ComentarComponent } from './comentar/comentar.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
@@ -40,7 +42,8 @@ const routes: Routes = [
   { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
   { path: 'receita/criar-receita', component: CriarReceitaComponent },
   { path: 'receita-detail/:id', component: ReceitaDetailComponent },
-  { path: 'comentarios', component: ComentariosComponent }
+  { path: 'comentarios', component: ComentariosComponent },
+  { path: 'comentar', component: ComentarComponent }
 ];
 
 @NgModule({

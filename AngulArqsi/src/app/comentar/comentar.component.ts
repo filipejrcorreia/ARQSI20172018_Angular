@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Comentario } from '../models/comentario';
-import { ComentariosService } from '../services/comentarios.service';
+import { ComentariosService } from '../services/comentarios.service'
+import { Router, ActivatedRoute } from '@angular/router';
 import { Reacao } from '../models/reacao';
 
 @Component({
-  selector: 'app-comentarios',
-  templateUrl: './comentarios.component.html',
-  styleUrls: ['./comentarios.component.css']
+  selector: 'app-comentar',
+  templateUrl: './comentar.component.html',
+  styleUrls: ['./comentar.component.css']
 })
-export class ComentariosComponent implements OnInit {
+export class ComentarComponent implements OnInit {
+
   comentarios: Comentario[] = [];
 
   reacoes: Reacao[] = [];
@@ -19,14 +21,18 @@ export class ComentariosComponent implements OnInit {
 
   selectedReacao: Reacao;
 
-  constructor(private comentariosService: ComentariosService) { }
+  aux: number;
+
+  farmacoIdAux: number;
+
+  model: any = {};
+  loading = false;
+  error = '';
+  constructor(private comentariosService: ComentariosService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    /*this.comentariosService.getReacoes()
-      .subscribe(reacoes => {
-        this.reacoes = reacoes;
-        console.log(this.reacoes);
-      })*/
     this.comentariosService.getFarmacos().subscribe(comentarios => {
       this.comentarios = comentarios;
       console.log(this.comentarios);
@@ -37,7 +43,7 @@ export class ComentariosComponent implements OnInit {
 
           this.comentarios.forEach(comentario => {
             comentario.reacoes=[{id:0, descricao:'alérgico'}];
-            //comentario.reacoes=[];
+            //comentario.reacoes = [];
             this.reacoes.forEach(reacao => {
               if (reacao.farmacoId == comentario.id) {
                 console.log(comentario.reacoes);
@@ -51,27 +57,25 @@ export class ComentariosComponent implements OnInit {
           });
         })
     })
-    /*this.reacoes.forEach(reacao => {
-      this.comentarios.forEach(comentario => {
-        if (reacao.farmacoId == comentario.id) {
-          //this.aux = comentario1.reacoes.length + 1;
-          comentario.reacoes.push({
-            "id": reacao.id,
-            "descricao": reacao.descricao
-          });
-          this.comentarios2.push(comentario);
-          console.log(this.comentarios2);
-        }
-      });
-    });*/
   }
 
-  onSelectComentario(comentario: Comentario): void {
-    this.selectedComentario = comentario;
-  }
+  comentar() {
+    this.loading = true;
+    this.comentarios.forEach(comentario => {
+      if (comentario.nome == this.model.nomeFarmaco) {
+        this.farmacoIdAux = comentario.id;
 
-  onSelectReacao(reacao: Reacao): void {
-    this.selectedReacao = reacao;
+        this.comentariosService.comentar(this.farmacoIdAux, this.model.descricao).subscribe(result => {
+          this.loading = false;
+          if (result === true) {
+            this.router.navigate(['/comentarios']);
+          } else {
+            this.error = 'Impossível criar comentario';
+          }
+        });
+
+      }
+    });
   }
 
 }
