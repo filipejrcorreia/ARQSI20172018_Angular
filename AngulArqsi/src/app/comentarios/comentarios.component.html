@@ -1,0 +1,37 @@
+<!--h2>Comentarios</h2>
+<ul class="comentarios">
+  <li *ngFor="let comentario of comentarios">
+    <span class="badge">{{comentario.farmaco.nome}}</span>
+  </li>
+</ul-->
+
+<h2>Reações</h2>
+<ul class="reacoes">
+  <li *ngFor="let reacao of reacoes">
+    <span class="badge">{{reacao.farmaco.nome}}</span>
+  </li>
+</ul>
+
+<h2>Comentarios</h2>
+<ul class="comentarios">
+  <li *ngFor="let comentario of comentarios">
+    <span class="badge">{{comentario.id}}</span> {{comentario.nome}}
+  </li>
+</ul>
+
+
+<!--div *ngIf="selectedcomentario">
+  
+    <h2>Detalhes de {{ selectedcomentario.descricao | uppercase }}</h2>
+    <div>
+      <span>Fármaco: </span>{{selectedcomentario.farmaco.nome}}</div>
+    <div>
+      <span>Medicamento: </span>{{selectedcomentario.medicamento.nome}}</div>
+    <div>
+      <span>Forma: </span>{{selectedcomentario.forma}}</div>
+    <div>
+      <span>Concentração: </span>{{selectedcomentario.concentracao}}</div>
+    <div>
+      <span>Quantidade: </span>{{selectedcomentario.qtd}}</div>
+  
+  </div-->

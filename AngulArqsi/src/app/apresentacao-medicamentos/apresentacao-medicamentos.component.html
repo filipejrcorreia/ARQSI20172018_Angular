@@ -1,11 +1,11 @@
 <h2>Medicamentos</h2>
 <ul class="apresentacoes">
   <li *ngFor="let apresentacao of apresentacoes" [class.selected]="apresentacao === selectedApresentacao" (click)="onSelect(apresentacao)">
-    <h3>{{apresentacao.nomeMedicamento}}</h3>
+    <h3>{{apresentacao.medicamento.nome}}</h3>
     <div>
-      <span>Fármaco: </span>{{apresentacao.nomeFarmaco}}</div>
+      <span>Fármaco: </span>{{apresentacao.medicamento.nome}}</div>
     <div>
-      <span>Medicamento: </span>{{apresentacao.nomeMedicamento}}</div>
+      <span>Medicamento: </span>{{apresentacao.medicamento.nome}}</div>
     <div>
       <span>Forma: </span>{{apresentacao.forma}}</div>
     <div>

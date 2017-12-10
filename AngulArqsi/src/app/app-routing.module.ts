@@ -22,22 +22,25 @@ import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
 
 import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
 
+import { ComentariosComponent } from './comentarios/comentarios.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'initial', component: InitialPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'farmaceutico', component: FarmaceuticoComponent},
+  { path: 'farmaceutico', component: FarmaceuticoComponent },
   {
     path: 'receitas', component: ReceitasComponent, canActivate:
       [AuthGuard, MedicoGuard]
   },
-  { path: 'receitas/:id_receita', component: ReceitasComponent, canActivate: [FarmaceuticoGuard]},
+  { path: 'receitas/:id_receita', component: ReceitasComponent, canActivate: [FarmaceuticoGuard] },
   { path: 'registar', component: RegistarComponent },
   { path: 'apresentacoes', component: ApresentacoesComponent },
   { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
   { path: 'receita/criar-receita', component: CriarReceitaComponent },
-  { path: 'receita-detail/:id', component: ReceitaDetailComponent }
+  { path: 'receita-detail/:id', component: ReceitaDetailComponent },
+  { path: 'comentarios', component: ComentariosComponent }
 ];
 
 @NgModule({
