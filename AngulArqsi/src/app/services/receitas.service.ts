@@ -1,3 +1,5 @@
+import { of } from 'rxjs/observable/of';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
@@ -28,6 +30,17 @@ export class ReceitasService {
     };
     return httpOptions;
   }
+  
+  getReceitaById(receita_id: string): Observable<Receita>{
+    if (!receita_id.trim()) {
+      // if not search term, return empty hero array.
+      return of(null);
+    }
+
+    const url = '${this.receitasUrl}/${receita_id}';
+    return this.http.get<Receita>(url, this.getHeaders());
+  }
+
 
   /** GET hero by id. Return `undefined` when id not found */
  /**getHeroNo404<Data>(id: number): Observable<Receita> {

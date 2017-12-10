@@ -6,6 +6,9 @@ import { ReceitasComponent } from './receitas/receitas.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MedicoGuard } from './guards/medico.guard';
 import { UtenteGuard } from './guards/utente.guard';
+import { FarmaceuticoGuard } from './guards/farmaceutico.guard';
+
+import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
 
 import { RegistarComponent } from './registar/registar.component';
 
@@ -20,10 +23,12 @@ const routes: Routes = [
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'initial', component: InitialPageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'farmaceutico', component: FarmaceuticoComponent},
   {
     path: 'receitas', component: ReceitasComponent, canActivate:
       [AuthGuard, MedicoGuard]
   },
+  { path: 'receitas/:id_receita', component: ReceitasComponent, canActivate: [FarmaceuticoGuard]},
   { path: 'registar', component: RegistarComponent },
   { path: 'apresentacoes', component: ApresentacoesComponent },
   { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent }

@@ -15,6 +15,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ReceitasComponent } from './receitas/receitas.component';
 import { LoginComponent } from './login/login.component';
 
+import { ReceitaSearchComponent } from './receita-search/receita-search.component';
 import { ReceitasService } from './services/receitas.service';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './guards/auth.guard';
@@ -29,6 +30,7 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
 import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
 import { ApresentacoesService } from './services/apresentacoes.service';
 import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
+import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
 
 @NgModule({
   imports: [
@@ -54,7 +56,9 @@ import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/a
     ReceitaDetailComponent,
     InitialPageComponent,
     ApresentacoesComponent,
-    ApresentacaoMedicamentosComponent
+    ApresentacaoMedicamentosComponent,
+    FarmaceuticoComponent,
+    ReceitaSearchComponent
   ],
   providers: [
     AuthGuard,
