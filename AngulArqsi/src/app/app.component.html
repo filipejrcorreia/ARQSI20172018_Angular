@@ -5,9 +5,8 @@
   <!--<a routerLink="/receitas">Receitas</a>-->
   <a *ngIf="!userInfo" routerLink="/login">Login</a>
   <a *ngIf="userInfo" routerLink="/login">Logout</a>
-  <a routerLink="/apresentacoes">Apresentacoes</a>
-  <a routerLink="/apresentacao-medicamentos">Medicamentos</a>
-  <a *ngIf="userInfo && userInfo.medico" routerLink="/comentarios">Comentarios</a>
+  <a routerLink="/apresentacoes">Apresentações</a>
+  <a *ngIf="userInfo && userInfo.medico" routerLink="/comentarios">Comentários</a>
 </nav>
 
 <router-outlet></router-outlet>

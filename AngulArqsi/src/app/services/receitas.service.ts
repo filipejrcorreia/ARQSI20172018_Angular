@@ -115,6 +115,36 @@ export class ReceitasService {
     });
   }
 
+  atualizarReceita(id: string, idp: string, farmaco: string, apresentacao: string, quantidade: number): Observable<boolean> {
+    return new Observable<boolean>(observer => {
+      this.http.put<Token>(this.receitasUrl + '/' + id + '/Prescricao/' + idp + '/Atualizar', {
+        farmaco: farmaco,
+        apresentacao: apresentacao,
+        quantidade: quantidade
+      }, this.getHeaders())
+        .subscribe(data => {
+          if (data) {
+
+            observer.next(true);
+          } else {
+
+            observer.next(true);
+          }
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+          console.log(err);
+          //this.authentication.next(this.userInfo);
+          observer.next(false);
+        });
+
+    });
+  }
+
   /** GET hero by id. Return `undefined` when id not found */
   getReceitaNo404<Data>(id: number): Observable<Receita> {
     const url = `${this.receitasUrl}/?id=${id}`;

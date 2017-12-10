@@ -41,9 +41,12 @@
 
 <h2>Receitas</h2>
 <a routerLink="/receita/criar-receita">Criar Receita</a>
+<p></p>
+<a routerLink="/receita/editar-receita">Editar Receita</a>
+<p></p>
 <ul class="receitas">
   <li *ngFor="let receita of receitas" [class.selected]="receita === selectedReceita" (click)="onSelect(receita)">
-    <span class="badge">{{receita.nomeUtente}}</span>
+    <span class="badge">{{receita.nomeUtente}}</span>{{receita._id}}
   </li>
 </ul>
 

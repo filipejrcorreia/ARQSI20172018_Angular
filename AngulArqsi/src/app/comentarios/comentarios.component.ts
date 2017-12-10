@@ -20,11 +20,6 @@ export class ComentariosComponent implements OnInit {
   constructor(private comentariosService: ComentariosService) { }
 
   ngOnInit() {
-    /*this.comentariosService.getReacoes()
-      .subscribe(reacoes => {
-        this.reacoes = reacoes;
-        console.log(this.reacoes);
-      })*/
     this.comentariosService.getFarmacos().subscribe(comentarios => {
       this.comentarios = comentarios;
       console.log(this.comentarios);
@@ -34,7 +29,7 @@ export class ComentariosComponent implements OnInit {
           console.log(this.reacoes);
 
           this.comentarios.forEach(comentario => {
-            comentario.reacoes=[{id:0, descricao:'alérgico'}];
+            comentario.reacoes = [{ id: 0, descricao: 'alérgico' }];
             //comentario.reacoes=[undefined];
             this.reacoes.forEach(reacao => {
               if (reacao.farmacoId == comentario.id) {
@@ -49,19 +44,10 @@ export class ComentariosComponent implements OnInit {
           });
         })
     })
-    /*this.reacoes.forEach(reacao => {
-      this.comentarios.forEach(comentario => {
-        if (reacao.farmacoId == comentario.id) {
-          //this.aux = comentario1.reacoes.length + 1;
-          comentario.reacoes.push({
-            "id": reacao.id,
-            "descricao": reacao.descricao
-          });
-          this.comentarios2.push(comentario);
-          console.log(this.comentarios2);
-        }
-      });
-    });*/
+  }
+
+  onSelect(comentario: Comentario): void {
+    this.selectedComentario = comentario;
   }
 
   onSelectComentario(comentario: Comentario): void {

@@ -1,56 +1,22 @@
-<!--p>
-  apresentacoes works!
-</p-->
-<!--h2>Apresentacoes</h2>
-<ul class="apresentacoes">
-  <li *ngFor="let apresentacao of apresentacoes" [class.selected]="apresentacao === selectedApresentacao" (click)="onSelect(apresentacao)">
-    <span class="badge">{{apresentacao.id}}</span> {{apresentacao.nomeMedicamento}}
-  </li>
-</ul>
-
-<div *ngIf="selectedApresentacao">
-
-  <h2>Detalhes da receita{{ apresentacao.id | uppercase }}</h2>
-  <div>
-    <span>id: </span>{{apresentacao.nomeMedicamento}}</div>
-
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedApresentacao.nomeFarmaco" placeholder="name">
-    </label>
-  </div>
-
-</div-->
 <h2>Apresentações</h2>
 <ul class="apresentacoes">
   <li *ngFor="let apresentacao of apresentacoes" [class.selected]="apresentacao === selectedApresentacao" (click)="onSelect(apresentacao)">
     <span class="badge">{{apresentacao.descricao}}</span>
-    <!--<h3>{{apresentacao.descricao}}</h3>
-    <div>
-      <span>Fármaco: </span>{{apresentacao.nomeFarmaco}}</div>
-    <div>
-      <span>Medicamento: </span>{{apresentacao.nomeMedicamento}}</div>
-    <div>
-      <span>Forma: </span>{{apresentacao.forma}}</div>
-    <div>
-      <span>Concentração: </span>{{apresentacao.concentracao}}</div>
-    <div>
-      <span>Quantidade: </span>{{apresentacao.qtd}}</div>-->
   </li>
 </ul>
 
 <div *ngIf="selectedApresentacao">
-  
-    <h2>Detalhes de {{ selectedApresentacao.descricao | uppercase }}</h2>
-    <div>
-      <span>Fármaco: </span>{{selectedApresentacao.farmaco.nome}}</div>
-    <div>
-      <span>Medicamento: </span>{{selectedApresentacao.medicamento.nome}}</div>
-    <div>
-      <span>Forma: </span>{{selectedApresentacao.forma}}</div>
-    <div>
-      <span>Concentração: </span>{{selectedApresentacao.concentracao}}</div>
-    <div>
-      <span>Quantidade: </span>{{selectedApresentacao.qtd}}</div>
-  
-  </div>
+
+  <h2>Detalhes de {{ selectedApresentacao.descricao | uppercase }}</h2>
+  <div>
+    <span>Fármaco: </span>{{selectedApresentacao.farmaco.nome}}</div>
+  <div>
+    <span>Medicamento: </span>{{selectedApresentacao.medicamento.nome}}</div>
+  <div>
+    <span>Forma: </span>{{selectedApresentacao.forma}}</div>
+  <div>
+    <span>Concentração: </span>{{selectedApresentacao.concentracao}}</div>
+  <div>
+    <span>Quantidade: </span>{{selectedApresentacao.qtd}}</div>
+
+</div>

@@ -1,3 +1,55 @@
-<p>
-  editar-receita works!
-</p>
+<h1>
+  EDITAR RECEITAS
+</h1>
+<div>
+<h3>Id da Receita:</h3>
+<input type="text" class="form-control" name="id" [(ngModel)]="model.id" #id="ngModel"/>
+<h3>Id da Prescricao:</h3>
+<input type="text" class="form-control" name="id" [(ngModel)]="model.idp" #id="ngModel"/>
+<h3>NOVOS DADOS DA PRESCRIÇÃO</h3>
+<span>Fármaco: </span><input type="text" class="form-control" name="id" [(ngModel)]="model.farmaco" #id="ngModel"/>
+<p></p>
+<span>Apresentação: </span><input type="text" class="form-control" name="id" [(ngModel)]="model.apresentacao" #id="ngModel"/>
+<p></p>
+<span>Quantidade: </span><input type="number" class="form-control" name="id" [(ngModel)]="model.quantidade" #id="ngModel"/>
+<p></p>
+<button (click)="alterarPrescricao()">Alterar Prescrição</button>
+<p></p>
+<p></p>
+<h2>Receitas</h2>
+<p></p>
+<ul class="receitas">
+  <li *ngFor="let receita of receitas" [class.selected]="receita === selectedReceita" (click)="onSelect(receita)">
+    <span class="badge">{{receita.nomeUtente}}</span>{{receita._id}}
+  </li>
+</ul>
+
+<div *ngIf="selectedReceita">
+
+  <h2>Detalhes da receita de {{ selectedReceita.nomeUtente }}</h2>
+  <span>Id da receita: {{selectedReceita._id}}</span>
+  <div>
+    <h3>Prescrições</h3>
+    <li *ngFor="let prescricao of selectedReceita.prescricoes">
+      <div>
+        <span>Id: {{prescricao._id}}</span>
+      </div>
+      <div>
+        <span>Fármaco: {{prescricao.farmaco}}</span>
+      </div>
+      <div>
+        <span>Quantidade: {{prescricao.quantidade}}</span>
+      </div>
+      <div>
+        <span>Validade: {{prescricao.validade}}</span>
+      </div>
+      <div>
+        <span>Apresentação: {{prescricao.apresentacao}}</span>
+      </div>
+      <div>
+        <span>Posologia prescrita: {{prescricao.posologiaPrescrita}}</span>
+      </div>
+    </li>
+
+  </div>
+</div>
