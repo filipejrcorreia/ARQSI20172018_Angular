@@ -39,15 +39,13 @@ export class ReceitasService {
     };
     return httpOptions;
   }
-
-  getReceitaById(receita_id: string): Observable<Receita> {
-    if (!receita_id.trim()) {
-      // if not search term, return empty hero array.
-      return of(null);
-    }
-
-    const url = '${this.receitasUrl}/${receita_id}';
-    return this.http.get<Receita>(url, this.getHeaders());
+  
+  getReceitaById(receita_id: string): Observable<Receita>{
+    const url =  this.receitasUrl + '/' + receita_id;
+    return this.http.get<Receita>(url, this.getHeaders()).pipe(
+      tap((receita: Receita) => console.log(`get receita w/ id=${receita._id}`)),
+      catchError(this.handleError<Receita>('getReceita'))
+    );
   }
 
 
@@ -141,7 +139,7 @@ export class ReceitasService {
   }*/
 
   getReceita(id: string): Observable<Receita> {
-    return this.http.get<Receita>(this.receitasUrl + '/' + id, this.getHeaders());
+    return this.http.get<Receita>(this.receitasUrl + '/' + id,this.getHeaders());
   }
 
   /**

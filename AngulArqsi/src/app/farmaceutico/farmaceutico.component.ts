@@ -17,7 +17,7 @@ export class FarmaceuticoComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.userInfo.farmaceutico
+    
   }
 
 }

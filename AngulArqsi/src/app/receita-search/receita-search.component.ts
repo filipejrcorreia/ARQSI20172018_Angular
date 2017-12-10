@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
 import { of }         from 'rxjs/observable/of';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import {
    debounceTime, distinctUntilChanged, switchMap
@@ -17,32 +18,28 @@ import { ReceitasService } from '../services/receitas.service';
   styleUrls: [ './receita-search.component.css' ]
 })
 export class ReceitaSearchComponent implements OnInit {
-  receita$: Observable<Receita>;
+  loading = false;
+  error = '';  
+  model: any = {};  
+  receita : Receita;
   private searchTerms = new Subject<string>();
 
-  constructor(private receitasService: ReceitasService) {}
-
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
+  constructor(    private router: Router, private receitasService: ReceitasService) {}
 
   ngOnInit(): void {
 
   }
 
-  getHero(term) : void{
+  getReceita() : void{
 
-    this.receita$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.receitasService.getReceitaById(term)),
-    );
+    this.receitasService.getReceitaById(this.model.id).subscribe(result => {
+      this.loading = false;
+      if(result === null){
+        this.error = 'Algo correu mal!';
+      }else{
+        this.receita  = result;
+      }
+    });
 
   }
 

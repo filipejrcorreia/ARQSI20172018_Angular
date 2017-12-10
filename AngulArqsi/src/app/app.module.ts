@@ -66,11 +66,10 @@ import { ComentarComponent } from './comentar/comentar.component';
     ApresentacaoMedicamentosComponent,
     CriarReceitaComponent,
     FarmaceuticoComponent,
-    EditarReceitaComponent,
+	EditarReceitaComponent,
     ReceitaSearchComponent,
     ComentariosComponent,
-    ComentarComponent
-  ],
+    ComentarComponent  ],
   providers: [
     AuthGuard,
     MedicoGuard,
