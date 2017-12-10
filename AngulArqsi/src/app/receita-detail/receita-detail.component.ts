@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Receita } from '../models/receita';
@@ -14,6 +15,7 @@ export class ReceitaDetailComponent implements OnInit {
   @Input() receita: Receita;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private receitasService: ReceitasService,
     private location: Location

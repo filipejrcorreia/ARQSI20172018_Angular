@@ -23,6 +23,7 @@ import { RegistarComponent } from './registar/registar.component';
 
 import { UserService } from './services/user.service';
 import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
+import { PrescricaoDetailComponent } from './prescricao-detail/prescricao-detail.component';
 import { InitialPageComponent } from './initial-page/initial-page.component';
 import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
 import { ApresentacoesService } from './services/apresentacoes.service';
@@ -50,10 +51,11 @@ import { ComentarComponent } from './comentar/comentar.component';
     ApresentacoesComponent,
     CriarReceitaComponent,
     FarmaceuticoComponent,
-	EditarReceitaComponent,
+  	EditarReceitaComponent,
     ReceitaSearchComponent,
     ComentariosComponent,
-    ComentarComponent  ],
+    ComentarComponent,
+    PrescricaoDetailComponent  ],
   providers: [
     AuthGuard,
     MedicoGuard,
