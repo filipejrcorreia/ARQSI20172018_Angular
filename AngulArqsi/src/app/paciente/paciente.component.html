@@ -1,0 +1,11 @@
+<h3>Paciente</h3>
+
+<h1>Lista de Receitas</h1>
+<div class="grid grid-pad">
+    <a *ngFor="let receita of receitas" class="col-1-4" routerLink="/receita-detail/{{receita._id}}" >
+        <div class="module hero">
+            <h4> {{receita.data}}
+            </h4>
+        </div>
+    </a>
+</div>

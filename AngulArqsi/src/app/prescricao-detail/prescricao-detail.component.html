@@ -1,6 +1,7 @@
 <!--p>
   receita-detail works!
 </p-->
+
 <h1>Detalhes da Prescrição</h1>
 <div *ngIf="prescricao">    
   <h2>Id : {{ prescricao._id | uppercase }}</h2>
@@ -9,7 +10,7 @@
     <p>
     <span>Quantidade: </span>{{prescricao.quantidade}}
     <p>
-    <span>Posologia: </span>{{prescricao.posologiaPrescrita}}
+    <span>Posologia: </span> <a routerLink="/posologia-detail/{{prescricao.posologiaPrescrita}}"> {{prescricao.posologiaPrescrita}} </a>
     <p>
     <span>Apresentação: </span>{{prescricao.apresentacao}}</div>
     
@@ -18,7 +19,7 @@
   <div class="grid grid-pad">
     <a *ngFor="let aviamento of prescricao.aviamento">
       <div class="module prescricao">
-          <h4 *ngIf="aviamento!==null">{{aviamento._id}}</h4>          
+          <h4 *ngIf="aviamento!==null">{{aviamento.data}}</h4>          
       </div>
     </a>
   </div>

@@ -33,6 +33,7 @@ import { EditarReceitaComponent } from './editar-receita/editar-receita.componen
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { ComentariosService } from './services/comentarios.service';
 import { ComentarComponent } from './comentar/comentar.component';
+import { PacienteComponent } from './paciente/paciente.component'
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { ComentarComponent } from './comentar/comentar.component';
     ReceitaSearchComponent,
     ComentariosComponent,
     ComentarComponent,
-    PrescricaoDetailComponent  ],
+    PrescricaoDetailComponent,
+    PacienteComponent  ],
   providers: [
     AuthGuard,
     MedicoGuard,

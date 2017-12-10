@@ -10,7 +10,7 @@
   <div class="grid grid-pad">      
   <a *ngFor="let prescricao of receita.prescricoes" routerLink="/prescricao-detail/{{receita._id}}/{{prescricao._id}}" >
     <div class="module prescricao">
-        <h4>{{prescricao._id}}</h4>
+        <h4>{{prescricao.validade}}</h4>
       </div>
   </a>
   </div>    

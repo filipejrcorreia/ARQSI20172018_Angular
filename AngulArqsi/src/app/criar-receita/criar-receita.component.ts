@@ -52,6 +52,7 @@ export class CriarReceitaComponent implements OnInit {
   adicionarPrescricao() {
     this.presc = false;
     this.prescricoes.push({
+      "_id" : undefined,      
       "farmaco": this.model.farmaco,
       "quantidade": this.model.quantidade,
       "validade": this.model.validade,

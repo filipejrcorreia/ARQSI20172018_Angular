@@ -2,6 +2,7 @@
 <nav>
   <a *ngIf="userInfo && userInfo.medico" routerLink="/receitas">Receitas</a>
   <a *ngIf="userInfo && userInfo.farmaceutico" routerLink="/farmaceutico">Página Inicial</a>  
+  <a *ngIf="userInfo" routerLink="/paciente">Página Inicial</a>    
   <!--<a routerLink="/receitas">Receitas</a>-->
   <a *ngIf="!userInfo" routerLink="/login">Login</a>
   <a *ngIf="userInfo" routerLink="/login">Logout</a>

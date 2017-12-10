@@ -7,7 +7,6 @@ import { Prescricao } from '../models/prescricao';
 import { AuthenticationService } from './authentication.service';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Prescricao } from '../models/prescricao';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

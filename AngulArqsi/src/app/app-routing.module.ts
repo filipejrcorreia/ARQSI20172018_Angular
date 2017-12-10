@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { MedicoGuard } from './guards/medico.guard';
 import { UtenteGuard } from './guards/utente.guard';
 import { FarmaceuticoGuard } from './guards/farmaceutico.guard';
+import { PacienteComponent } from './paciente/paciente.component';
 
 import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
 
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'prescricao-detail/:id/:id2', component: PrescricaoDetailComponent },
   { path: 'comentarios', component: ComentariosComponent },
   { path: 'comentar', component: ComentarComponent },
-  { path: 'receita/editar-receita', component: EditarReceitaComponent }
+  { path: 'receita/editar-receita', component: EditarReceitaComponent },
+  { path: 'paciente', component: PacienteComponent }
 ];
 
 @NgModule({
