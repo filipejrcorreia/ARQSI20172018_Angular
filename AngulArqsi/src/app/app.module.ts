@@ -34,6 +34,9 @@ import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/a
 import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
 import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
 import { EditarReceitaComponent } from './editar-receita/editar-receita.component';
+import { ComentariosComponent } from './comentarios/comentarios.component';
+import { ComentariosService } from './services/comentarios.service';
+import { ComentarComponent } from './comentar/comentar.component';
 
 @NgModule({
   imports: [
@@ -63,9 +66,10 @@ import { EditarReceitaComponent } from './editar-receita/editar-receita.componen
     ApresentacaoMedicamentosComponent,
     CriarReceitaComponent,
     FarmaceuticoComponent,
-    EditarReceitaComponent,
-    ReceitaSearchComponent
-  ],
+	EditarReceitaComponent,
+    ReceitaSearchComponent,
+    ComentariosComponent,
+    ComentarComponent  ],
   providers: [
     AuthGuard,
     MedicoGuard,
@@ -75,7 +79,8 @@ import { EditarReceitaComponent } from './editar-receita/editar-receita.componen
     HeroService,
     MessageService,
     UserService,
-    ApresentacoesService
+    ApresentacoesService,
+    ComentariosService
   ],
   bootstrap: [AppComponent]
 })
