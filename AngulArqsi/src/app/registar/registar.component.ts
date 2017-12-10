@@ -17,17 +17,7 @@ export class RegistarComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private authenticationService: AuthenticationService) { }
 
-  ngOnInit() {
-    //this.authenticationService.logout();
-
-    /**this.activatedRoute.params.subscribe(params => {
-      if (params['u'] !== undefined) {
-        ;
-        this.error = 'Your user cannot access receitas';
-      }
-    });*/
-
-  }
+  ngOnInit() { }
 
   registar() {
     this.loading = true;

@@ -1,7 +1,9 @@
 export class Receita {
     _id: string;
-    paciente: string;
+    utente: string;
     medico: string;
+    paciente: string;
+    nomeUtente: string;
     data: Date;
     __v: string;
     //prescricoes: string;

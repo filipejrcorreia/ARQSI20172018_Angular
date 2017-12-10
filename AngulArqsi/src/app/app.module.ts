@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
+//import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -30,7 +31,9 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
 import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
 import { ApresentacoesService } from './services/apresentacoes.service';
 import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
+import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
 import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
+import { EditarReceitaComponent } from './editar-receita/editar-receita.component';
 
 @NgModule({
   imports: [
@@ -57,7 +60,10 @@ import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
     InitialPageComponent,
     ApresentacoesComponent,
     ApresentacaoMedicamentosComponent,
+    ApresentacaoMedicamentosComponent,
+    CriarReceitaComponent,
     FarmaceuticoComponent,
+    EditarReceitaComponent
     ReceitaSearchComponent
   ],
   providers: [
