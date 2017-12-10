@@ -63,7 +63,7 @@ import { EditarReceitaComponent } from './editar-receita/editar-receita.componen
     ApresentacaoMedicamentosComponent,
     CriarReceitaComponent,
     FarmaceuticoComponent,
-    EditarReceitaComponent
+    EditarReceitaComponent,
     ReceitaSearchComponent
   ],
   providers: [
