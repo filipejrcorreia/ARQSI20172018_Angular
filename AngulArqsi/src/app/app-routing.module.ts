@@ -36,7 +36,6 @@ const routes: Routes = [
     path: 'receitas', component: ReceitasComponent, canActivate:
       [AuthGuard, MedicoGuard]
   },
-  { path: 'receitas/:id_receita', component: ReceitasComponent, canActivate: [FarmaceuticoGuard] },
   { path: 'registar', component: RegistarComponent },
   { path: 'apresentacoes', component: ApresentacoesComponent },
   { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
