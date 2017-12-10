@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from
   '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { Receita } from '../models/receita';
+import { Prescricao } from '../models/prescricao';
 import { AuthenticationService } from './authentication.service';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -131,6 +132,26 @@ export class ReceitasService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  getPrescricao(id:string, id_prescricao:string) : Observable<Prescricao> {
+
+    const url =  this.receitasUrl + '/' + id + '/Prescricao/' + id_prescricao;
+    return this.http.get<Prescricao>(url, this.getHeaders()).pipe(
+      tap((prescricao: Prescricao) => console.log(`get prescricao w/ id=${prescricao._id}`)),
+      catchError(this.handleError<Prescricao>('getPrescricao'))
+    );
+
+  }
+
+  aviarPrescricao(id_Receita : string, id_Prescricao : string, qtd : number) : Observable<Prescricao> {
+
+    const url = this.receitasUrl + '/' + id_Receita + '/Prescricao/' + id_Prescricao + '/Aviar';
+    return this.http.put<Prescricao>(url,{quantidade: qtd},this.getHeaders()).pipe(
+      tap((prescricao: Prescricao) => console.log(`Aviado w/ id=${prescricao._id}`)),
+      catchError(this.handleError<Prescricao>('aviar'))
+    );;
+
   }
 
   /** Log a HeroService message with the MessageService */

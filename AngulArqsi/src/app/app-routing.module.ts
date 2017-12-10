@@ -26,6 +26,8 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
 
 import { ComentarComponent } from './comentar/comentar.component';
 
+import { PrescricaoDetailComponent } from './prescricao-detail/prescricao-detail.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
   //{ path: '', redirectTo: '/', pathMatch: 'full' },
@@ -41,6 +43,7 @@ const routes: Routes = [
   { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
   { path: 'receita/criar-receita', component: CriarReceitaComponent },
   { path: 'receita-detail/:id', component: ReceitaDetailComponent },
+  { path: 'prescricao-detail/:id/:id2', component: PrescricaoDetailComponent },
   { path: 'comentarios', component: ComentariosComponent },
   { path: 'comentar', component: ComentarComponent }
 ];
