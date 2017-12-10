@@ -1,40 +1,37 @@
-<!--h2>Comentarios</h2>
-<ul class="comentarios">
-  <li *ngFor="let comentario of comentarios">
-    <span class="badge">{{comentario.farmaco.nome}}</span>
-  </li>
-</ul-->
-
-<h2>Reações</h2>
+<p></p>
+<p></p>
 <a routerLink="/comentar">Comentar</a>
-<!--ul class="reacoes">
-  <li *ngFor="let reacao of reacoes">
-    <span class="badge">{{reacao.farmaco.nome}}</span>
-  </li>
-</ul-->
-
+<p></p>
 <h2>Comentários</h2>
 <ul class="comentarios">
   <li *ngFor="let comentario of comentarios">
-    <!--span class="badge">{{comentario.id}}</span> {{comentario.nome}}-->
     <h3>{{comentario.nome | uppercase}}</h3>
     <div>
-      <!--h3>Re}}ações</h3-->
       <li *ngFor="let reacao of comentario.reacoes">
-        <!--<div>
-          <span>Fármaco: {{reacao.id}}</span>
-        </div>
-        <div>
-          <span>Fármaco: {{comentario.nome}}</span>
-        </div>-->
         <div>
           <span>{{reacao.descricao}}</span>
         </div>
       </li>
-
     </div>
   </li>
 </ul>
+<!--ul class="comentarios">
+  <li *ngFor="let comentario of comentarios" [class.selected]="comentario === selectedComentario" (click)="onSelect(comentario)">
+    <span class="badge">{{comentario.nome | uppercase}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedComentario">
+
+  <h2>{{ selectedComentario.descricao | uppercase }}</h2>
+  <div>
+    <li *ngFor="let reacao of comentario.reacoes">
+      <div>
+        <span>{{reacao.descricao}}</span>
+      </div>
+    </li>
+  </div>
+</div-->
 
 
 <!--div *ngIf="selectedcomentario">

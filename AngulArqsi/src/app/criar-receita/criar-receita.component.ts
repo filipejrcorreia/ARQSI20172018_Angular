@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Receita } from '../models/receita';
-import { ReceitasService } from '../services/receitas.service'
+import { ReceitasService } from '../services/receitas.service';
+import { Prescricao } from '../models/prescricao';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -11,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./criar-receita.component.css']
 })
 export class CriarReceitaComponent implements OnInit {
+  prescricoes: Prescricao[] = [];
+  presc = false;
   model: any = {};
   loading = false;
   error = '';
@@ -21,9 +24,9 @@ export class CriarReceitaComponent implements OnInit {
   ngOnInit() { }
 
   criarReceita() {
-    this.loading = true;
+    /*this.loading = true;
     this.receitasService.criarReceita(this.model.nomeUtente, this.model.farmaco,
-    this.model.quantidade, this.model.validade)
+    this.model.quantidade, this.model.validade, this.model.apresentacao, this.model.posologiaPrescrita)
       .subscribe(result => {
         this.loading = false;
         if (result === true) {
@@ -31,8 +34,36 @@ export class CriarReceitaComponent implements OnInit {
         } else {
           this.error = 'Impossível criar receita';
         }
+      });*/
+    this.loading = true;
+    this.receitasService.criarReceita(this.model.nomeUtente,/* this.model.farmaco,
+      this.model.quantidade, this.model.validade, this.model.apresentacao, this.model.posologiaPrescrita, */this.prescricoes)
+      .subscribe(result => {
+        this.loading = false;
+        if (result === true) {
+          console.log("CRIADA");          
+          this.router.navigate(['/receitas']);
+        } else {
+          this.error = 'Impossível criar receita';
+        }
       });
   }
+
+  adicionarPrescricao() {
+    this.presc = false;
+    this.prescricoes.push({
+      "farmaco": this.model.farmaco,
+      "quantidade": this.model.quantidade,
+      "validade": this.model.validade,
+      "apresentacao": this.model.apresentacao,
+      "apresentacaoID": undefined,
+      "posologiaPrescrita": this.model.posologiaPrescrita,
+      "posologiaID": undefined,
+      "aviamento": [undefined]
+    });
+    this.presc = true;
+  };
+
 }
 /**add(name: string): void {
     name = name.trim();

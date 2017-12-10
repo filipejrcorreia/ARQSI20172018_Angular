@@ -16,8 +16,6 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
 
 import { ApresentacoesComponent } from './apresentacoes/apresentacoes.component';
 
-import { ApresentacaoMedicamentosComponent } from './apresentacao-medicamentos/apresentacao-medicamentos.component';
-
 import { CriarReceitaComponent } from './criar-receita/criar-receita.component';
 
 import { ReceitaDetailComponent } from './receita-detail/receita-detail.component';
@@ -27,6 +25,8 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
 import { ComentarComponent } from './comentar/comentar.component';
 
 import { PrescricaoDetailComponent } from './prescricao-detail/prescricao-detail.component';
+import { EditarReceitaComponent } from './editar-receita/editar-receita.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/initial', pathMatch: 'full' },
@@ -40,12 +40,12 @@ const routes: Routes = [
   },
   { path: 'registar', component: RegistarComponent },
   { path: 'apresentacoes', component: ApresentacoesComponent },
-  { path: 'apresentacao-medicamentos', component: ApresentacaoMedicamentosComponent },
   { path: 'receita/criar-receita', component: CriarReceitaComponent },
   { path: 'receita-detail/:id', component: ReceitaDetailComponent },
   { path: 'prescricao-detail/:id/:id2', component: PrescricaoDetailComponent },
   { path: 'comentarios', component: ComentariosComponent },
-  { path: 'comentar', component: ComentarComponent }
+  { path: 'comentar', component: ComentarComponent },
+  { path: 'receita/editar-receita', component: EditarReceitaComponent }
 ];
 
 @NgModule({

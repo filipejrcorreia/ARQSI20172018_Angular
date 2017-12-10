@@ -7,6 +7,7 @@ import { Prescricao } from '../models/prescricao';
 import { AuthenticationService } from './authentication.service';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Prescricao } from '../models/prescricao';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,9 @@ class Token { token: string };
 @Injectable()
 export class ReceitasService {
   private receitasUrl = 'http://localhost:8080/Receita';
+
+  prescricao: Prescricao;
+
   //verificar o servidor:porta
   constructor(
     private http: HttpClient,
@@ -54,15 +58,70 @@ export class ReceitasService {
     );
   }
 
-  criarReceita(nomeUtente: string, farmaco: string, quantidade: string, validade: string): Observable<boolean> {
-    return new Observable<boolean>(observer => {
+  criarReceita(nomeUtente: string,/* farmaco: string, quantidade: string, validade: string, apresentacao: string, posologiaPrescrita: string,*/ prescricoes: Prescricao[]): Observable<boolean> {
+    /*return new Observable<boolean>(observer => {
       this.http.post<Token>(this.receitasUrl, {
         nomeUtente: nomeUtente,
         prescricoes: [{
           farmaco: farmaco,
           quantidade: quantidade,
-          validade: validade
+          validade: validade,
+          apresentacao: apresentacao,
+          posologiaPrescrita: posologiaPrescrita
         }]
+      }, this.getHeaders())
+      prescricao: {
+        "farmaco": farmaco;
+        "quantidade": quantidade;
+        "validade": validade;
+        "apresentacao": apresentacao;
+        "posologiaPrescrita": posologiaPrescrita;
+      };
+      prescricoes2.push({
+        "num": prescricoes2.length,
+        "farmaco": farmaco,
+        "quantidade": quantidade,
+        "validade": validade,
+        "apresentacao": apresentacao,
+        "apresentacaoID": undefined,
+        "posologiaPrescrita": posologiaPrescrita,
+        "posologiaID": undefined,
+        "aviamento": [undefined]
+      });*/
+    return new Observable<boolean>(observer => {
+      this.http.post<Token>(this.receitasUrl, {
+        nomeUtente: nomeUtente,
+        prescricoes: prescricoes
+      }, this.getHeaders())
+        .subscribe(data => {
+          if (data) {
+
+            observer.next(true);
+          } else {
+
+            observer.next(true);
+          }
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+          console.log(err);
+          //this.authentication.next(this.userInfo);
+          observer.next(false);
+        });
+
+    });
+  }
+
+  atualizarReceita(id: string, idp: string, farmaco: string, apresentacao: string, quantidade: number): Observable<boolean> {
+    return new Observable<boolean>(observer => {
+      this.http.put<Token>(this.receitasUrl + '/' + id + '/Prescricao/' + idp + '/Atualizar', {
+        farmaco: farmaco,
+        apresentacao: apresentacao,
+        quantidade: quantidade
       }, this.getHeaders())
         .subscribe(data => {
           if (data) {

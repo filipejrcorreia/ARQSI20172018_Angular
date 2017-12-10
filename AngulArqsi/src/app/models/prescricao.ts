@@ -1,6 +1,6 @@
 export class Prescricao {
     _id: string;
-    farmaco : string;
+    farmaco: string;
     apresentacao: string;
     apresentacaoID: string; //id de apresentacao em GdM
     posologiaPrescrita: string;
